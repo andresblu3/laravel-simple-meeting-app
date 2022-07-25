@@ -45,14 +45,7 @@ Agrega "SCOUT_DRIVER=database" al final de .env y ejecuta el comando:
 Ejecuta el comando "php artisan migrate"
         
         ```bash
-        php artisan migrate
-        php artisan migrate:refresh --seed
-        ```
-
-Ejecuta el comando para instalar las dependencias node:
-        
-        ```bash
-        npm install && npm run dev
+        php artisan migrate --seed
         ```
 
 Ejecuta el comando para iniciar el servidor artisan:
