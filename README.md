@@ -28,12 +28,12 @@ Configurar el archivo .env o usa el .env.example
     
 Configura la base de datos
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=Laravel
-DB_USERNAME=root
-DB_PASSWORD=
+- DB_CONNECTION=mysql
+- DB_HOST=127.0.0.1
+- DB_PORT=3306
+- DB_DATABASE=Laravel
+- DB_USERNAME=root
+- DB_PASSWORD=
 
 Agrega "SCOUT_DRIVER=database" al final de .env y ejecuta el comando:
         
