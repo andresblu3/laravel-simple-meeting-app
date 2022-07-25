@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="/build/assets/app.0758f633.js"></script>
+    <link rel="stylesheet" href="/build/assets/app.6e0061b4.css">
 </head>
 
 <body class="font-sans antialiased">
