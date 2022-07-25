@@ -31,25 +31,6 @@
             {{ $slot }}
         </main>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        $(document).ready(function() {
-            $(".delGuest").hide();
-            
-            $("#addGuest").click(function(e) {
-                $(".delGuest").fadeIn("1500");
-                //Append a new row of code to the "#items" div
-                $("#guests").append(
-                    '<div class="guest"><input class="w-full border border-gray-200 rounded-md mb-2" name="textinput[]" type="text" placeholder="Escribe el nombre del Invitado"></div>'
-                );
-            });
-            $("body").on("click", ".delGuest", function(e) {
-                $(".guest").last().remove();
-            });
-        });
-    </script>
 </body>
 
 </html>

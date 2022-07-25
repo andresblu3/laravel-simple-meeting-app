@@ -21,6 +21,8 @@ class Meeting extends Model
 
     public function toSearchableArray()
     {
+        /* This is a method that is used by the Searchable trait. It is used to tell Laravel Scout what
+        fields to index. */
         return [
             'title'       => $this->title,
             'start_date'  => $this->start_date,

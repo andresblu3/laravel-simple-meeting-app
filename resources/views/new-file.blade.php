@@ -18,7 +18,6 @@
                     <strong class="text-xl align-center cursor-pointer del_alert">&times;</strong>
                 </div>
             @endif
-            <!-- display errors of the upload file -->
             @if ($errors->any())
                 <div class="flex justify-between text-white shadow-inner rounded p-3 bg-gray-900 mb-4">
                     <p class="self-center">

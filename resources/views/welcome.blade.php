@@ -69,7 +69,7 @@
                                     focus:shadow-outline ml-2">Registrarme</a>
                             </div>
                         </div>
- @endif
+                    @endif
 
                             </div>
                         </div>

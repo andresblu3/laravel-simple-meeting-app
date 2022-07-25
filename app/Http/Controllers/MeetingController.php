@@ -28,6 +28,7 @@ class MeetingController extends Controller
      */
     public function store(Request $request)
     {
+        /* Validating the request. */
         $request->validate([
             'title' => 'required|max:255',
             'description' => 'required|max:255',
@@ -36,7 +37,7 @@ class MeetingController extends Controller
             'url' => 'required|url|max:255',
         ]);
 
-        //save the data from the form with good practices
+        /* Creating a new meeting and saving it to the database. */
         $meeting = new Meeting;
         $meeting->title = $request->title;
         $meeting->description = $request->description;
@@ -45,7 +46,6 @@ class MeetingController extends Controller
         $meeting->url = $request->url;
         $meeting->save();
 
-        //redirect to the show view page
         $request->session()->flash('success', 'Reunion creada correctamente');
 
         return redirect()->route('meetings.show', ['meeting' => $meeting]);
@@ -121,6 +121,8 @@ class MeetingController extends Controller
     //Guest 
     public function add_guest(Request $request, Meeting $meeting)
     {
+        /* This is checking if the request has a guest. If it does, it will create a new guest and
+        redirect to the add_guest route. */
         if ($request->filled('guest')) {
             $meeting->guests()->create(['name' => $request->guest]);
             $request->session()->flash('success', 'El Invitado se agrego correctamente');
@@ -131,6 +133,7 @@ class MeetingController extends Controller
 
     public function destroy_guest(Request $request, Meeting $meeting, $guest)
     {
+        /* Deleting the guest from the database. */
         $meeting->guests()->find($guest)->delete();
         return redirect()->route('add_guest', ['meeting' => $meeting]);
     }
@@ -144,9 +147,11 @@ class MeetingController extends Controller
 
     public function save_file(Request $request, Meeting $meeting)
     {
+       /* Validating the request. */
         $request->validate([
             'file' => 'required|file|max:10000',
         ]);
+        /* This is saving the file to the filesystem and then saving the path to the database. */
         $file = $request->file('file');
         $file_name = time() . $file->getClientOriginalName();
         $file->move(public_path('files'), $file_name);
@@ -157,7 +162,8 @@ class MeetingController extends Controller
 
     public function delete_file(Request $request, Meeting $meeting, $file)
     {
-        //delete the file from the filesystem
+        
+        /* Checking if the file exists and if it does, it will delete it. */
         $file_path = public_path('files/' . $meeting->files()->find($file)->path);
         if (file_exists($file_path)) {
             unlink($file_path);

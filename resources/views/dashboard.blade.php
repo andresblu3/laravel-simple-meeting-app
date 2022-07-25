@@ -65,7 +65,7 @@
                                     </a>
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap">
-                                    <!-- verify if the meeting have guests -->
+
                                     @if ($meeting->guests->count() > 0)
                                     @foreach ($meeting->guests as $guest)
                                     <span
